@@ -9,6 +9,8 @@ echo 'Configuring OpsMan authentication...'
 om -k -t https://$OM_DOMAIN configure-authentication -u $OM_USERNAME -p $OM_PASSWORD -dp $OM_PASSWORD
 
 echo 'Configuring OpsMan...'
+echo 'OM_IAAS_CONFIG ' $OM_IAAS_CONFIG
+echo 'OM_DOMAIN ' $OM_DOMAIN
 om -k -t https://$OM_DOMAIN configure-director --iaas-configuration "$OM_IAAS_CONFIG"
 
 om -k -t https://$OM_DOMAIN configure-director --director-configuration '{"ntp_servers_string": "time.google.com"}'
